@@ -5,6 +5,8 @@
  */
 
 import VueRouter from 'vue-router';
+import Vuelidate from "vuelidate";
+
 import HeaderComponent from "./components/HeaderComponent";
 import TaskListComponent from "./components/TaskListComponent";
 import TaskCreateComponent from "./components/TaskCreateComponent";
@@ -24,6 +26,7 @@ window.Vue = require('vue').default;
  */
 
 Vue.use(VueRouter);
+Vue.use(Vuelidate);
 
 const router = new VueRouter({
     mode: 'history',
@@ -67,5 +70,5 @@ Vue.component('header-component', HeaderComponent);
 
 const app = new Vue({
     el: '#app',
-        router
+    router
 });
