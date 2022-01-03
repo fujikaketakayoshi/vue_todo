@@ -49,9 +49,16 @@
                   console.log('バリデーションエラー');
                 } else {
                    axios.post('/api/tasks', this.task)
-                       .then((res) => {
-                           this.$router.push({name: 'task.list'});
-                       });
+                   .then((res) => {
+                       //console.log(res);
+                       this.$router.push({name: 'task.list'});
+                   })
+                   .catch(e => {
+                       if (e.response.status == 422) {
+                            alert('不正なデータ入力です。');
+                        }
+                        console.log(e.response.data);
+                   });
                 }
            }
        }
